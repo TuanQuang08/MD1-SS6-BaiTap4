@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            display: flex;
+            flex-direction: column;
+
+        }
+        img{
+            width: 600px;
+            height: 80px;
+            margin: 2px 0;
+            box-shadow: 7px 4px 10px red;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <img id="img1" src="img/Khi1.jpg" alt="" onclick="changeImage1();">
+    <img id="img2" src="img/Khi2.jpg" alt="" onclick="changeImage2();">
+    <img id="img3" src="img/Khi3.jpg" alt="" onclick="changeImage3();">
+</div>
+</body>
+<script>
+    function changeImage1() {
+        let srcImg = document.getElementById('img1');
+        if(srcImg.getAttribute('src') === "img/Khi1.jpg"){
+            srcImg.src = "img/Gau1.jpg";
+        }else if(srcImg.getAttribute('src') === "img/Gau1.jpg"){
+            srcImg.src = 'img/Cat1.jpg';
+        }else {
+            srcImg.src = 'img/Khi1.jpg';
+        }
+        checkImg();
+    }
+    function changeImage2() {
+        let srcImg = document.getElementById('img2');
+        if(srcImg.getAttribute('src') === "img/Khi2.jpg"){
+            srcImg.src = "img/Gau2.jpg";
+        }else if(srcImg.getAttribute('src') === "img/Gau2.jpg"){
+            srcImg.src = 'img/Cat2.jpg';
+        }else {
+            srcImg.src = 'img/Khi2.jpg';
+        }
+        checkImg();
+    }
+    function changeImage3() {
+        let srcImg = document.getElementById('img3');
+        if(srcImg.getAttribute('src') === "img/Khi3.jpg"){
+            srcImg.src = "img/Gau3.jpg";
+        }else if(srcImg.getAttribute('src') === "img/Gau3.jpg"){
+            srcImg.src = 'img/Cat3.jpg';
+        }else {
+            srcImg.src = 'img/Khi3.jpg';
+        }
+        checkImg();
+    }
+    function checkImg() {
+        let img1 = document.getElementById('img1').getAttribute('src');
+        let img2 = document.getElementById('img2').getAttribute('src');
+        let img3 = document.getElementById('img3').getAttribute('src');
+        let khi = 'Khi';
+        let gau = 'Gau';
+        let cat = 'Cat';
+        if((img1.match(khi) && img2.match(khi) && img3.match(khi))
+        ||(img1.match(gau) && img2.match(gau) && img3.match(gau))
+        ||(img1.match(cat) && img2.match(cat) && img3.match(cat))){
+            document.getElementById('img1').style.boxShadow = '7px 4px 10px red';
+            document.getElementById('img2').style.boxShadow = '7px 4px 10px red';
+            document.getElementById('img3').style.boxShadow = '7px 4px 10px red';
+        }else {
+            document.getElementById('img1').style.boxShadow = '7px 4px 10px blue';
+            document.getElementById('img2').style.boxShadow = '7px 4px 10px blue';
+            document.getElementById('img3').style.boxShadow = '7px 4px 10px blue';
+        }
+    }
+</script>
+</html>
